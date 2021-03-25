@@ -11,7 +11,7 @@ $Drives = Get-PSDrive -PSProvider 'FileSystem'
 foreach($Drive in $drives) {
 $Drive
 #limits the file types to scan
-$files = Get-ChildItem $Drive.Root -Recurse -File -include "*.ps1","*.bat","*.txt","*.doc","*.rtf"|where{$_.fullname -notlike "*.ps1x"}
+$files = Get-ChildItem $Drive.Root -Recurse -File -include "*.ps1","*.bat","*.txt","*.doc","*.rtf","*.vbs"|where{$_.fullname -notlike "*.ps1x"}
 $i = 0
 FOREACH($file in $files){
     $count = $files.count
