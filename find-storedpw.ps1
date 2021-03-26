@@ -4,8 +4,14 @@
 ###Company:Belltechlogix###
 
 #Variables for output and scan location
-$report = "c:\reports\clearinfo.log"
+$rptfolder = "c:\reports\"
+$report = "clearinfo.log"
 $Drives = Get-PSDrive -PSProvider 'FileSystem'
+
+#creates the report folder if it doesn't exist
+if(!(Test-Path -Path $rptfolder)){
+    New-Item -ItemType directory -Path $rptfolder
+}
 
 #loops through each drive on the filesystem
 foreach($Drive in $drives) {
